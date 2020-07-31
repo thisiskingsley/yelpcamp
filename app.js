@@ -20,12 +20,13 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
-// mongoose.connect("mongodb://localhost:27017/yelp_camp_v12");
-mongoose.connect("mongodb+srv://sirkings:monking89@cluster0.w8xc8.mongodb.net/yelpcamp?retryWrites=true&w=majority").then(function(){
-	console.log("Connected to DB!");
-}).catch(function(err){
-	console.log("ERROR:", err.message);
-});
+
+mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect("mongodb+srv://sirkings:monking89@cluster0.w8xc8.mongodb.net/yelpcamp?retryWrites=true&w=majority").then(function(){
+// 	console.log("Connected to DB!");
+// }).catch(function(err){
+// 	console.log("ERROR:", err.message);
+// });
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
